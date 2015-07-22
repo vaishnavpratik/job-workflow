@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "command": "ln -s /etc/passwd",
+    "parent":"null"
+  },
+  {
+    "id": "2",
+    "command": "ps aux | grep java | ln -s",
+    "parent": "1"
+  },
+  {
+    "id": "3",
+    "command": "ps aux | grep python | ln -s",
+    "parent" : "1"
+  },
+  {
+    "id": "4",
+    "command": "touch /Users/pratik/Desktop/abc.json",
+    "parent": "1"
+  }
+]
