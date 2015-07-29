@@ -19,13 +19,13 @@ public class WorkFlow {
 
     public static Map<Integer, Node> getInstance(){
         if(steps == null)
-            steps = new HashMap<Integer, Node>();
+            steps = new readJSONFile();
         return steps;
     }
 
     public static void main(String[] args){
 
-        DirectedGraph<Integer, DefaultEdge> DAG = createDAG(readJSONFile());
+        DirectedGraph<Integer, DefaultEdge> DAG = createDAG(getInstance());
 
         traverseDAG(DAG);
 
@@ -95,7 +95,7 @@ public class WorkFlow {
     public static Map<Integer, Node> readJSONFile(){
 
         Node[] nodes = null;
-        Map<Integer, Node> map = getInstance();
+        Map<Integer, Node> map = new HashMap<Integer, Node>();
 
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -117,7 +117,7 @@ public class WorkFlow {
 
         Node step = null;
 
-        Map<Integer, Node> steps = readJSONFile();
+        Map<Integer, Node> steps = getInstance();
 
         if(steps.containsKey(Integer.parseInt(id))){
             step = steps.get(Integer.parseInt(id));
