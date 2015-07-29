@@ -19,7 +19,7 @@ public class WorkFlow {
 
     public static Map<Integer, Node> getInstance(){
         if(steps == null)
-            steps = new readJSONFile();
+            steps = readJSONFile();
         return steps;
     }
 
